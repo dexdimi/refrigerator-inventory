@@ -18,7 +18,6 @@ import java.util.UUID;
 public class FridgeItem {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @Column(name = "ID", columnDefinition = "BINARY(16)", updatable = false, nullable = false)
     private UUID id;
@@ -28,9 +27,13 @@ public class FridgeItem {
 
     private Integer quantity;
 
-    private String unit;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Unit unit;
 
-    private String category;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Category category;
 
     @Column(name = "time_stored", nullable = false)
     private LocalDateTime timeStored;

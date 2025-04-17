@@ -1,5 +1,7 @@
 package com.hylastix.fridgeservice.dto;
 
+import com.hylastix.fridgeservice.model.Category;
+import com.hylastix.fridgeservice.model.Unit;
 import lombok.Builder;
 import lombok.Data;
 
@@ -14,9 +16,9 @@ public class FridgeItemDTO {
     private UUID id;
     private String name;
     private int quantity;
-    private String unit;
+    private Unit unit;
     private LocalDate bestBeforeDate;
     private LocalDateTime timeStored;
-    private String category;
+    private Category category;
     private String notes;
 }
