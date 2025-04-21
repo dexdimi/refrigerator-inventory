@@ -19,6 +19,7 @@ public class FridgeItem {
 
     @Id
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @GeneratedValue
     @Column(name = "ID", columnDefinition = "BINARY(16)", updatable = false, nullable = false)
     private UUID id;
 
