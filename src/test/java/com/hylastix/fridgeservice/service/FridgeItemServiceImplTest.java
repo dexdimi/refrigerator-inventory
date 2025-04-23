@@ -3,14 +3,12 @@ package com.hylastix.fridgeservice.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
-
 import com.hylastix.fridgeservice.dto.FridgeItemDTO;
 import com.hylastix.fridgeservice.model.Category;
 import com.hylastix.fridgeservice.model.FridgeItem;
 import com.hylastix.fridgeservice.model.Unit;
 import com.hylastix.fridgeservice.repository.FridgeItemRepository;
 import com.hylastix.fridgeservice.exceptions.custom.ResourceNotFoundException;
-
 import com.hylastix.fridgeservice.service.impl.FridgeItemServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +22,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;

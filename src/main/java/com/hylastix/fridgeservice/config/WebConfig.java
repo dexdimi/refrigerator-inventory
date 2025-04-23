@@ -10,7 +10,8 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry){
-        corsRegistry.addMapping("/api/fridge-items")
+        corsRegistry
+                .addMapping("/api/**")
                 .allowedOrigins("http://localhost:4200")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")

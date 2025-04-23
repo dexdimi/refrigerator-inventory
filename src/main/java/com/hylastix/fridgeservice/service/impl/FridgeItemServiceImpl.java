@@ -16,6 +16,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
@@ -30,7 +32,12 @@ public class FridgeItemServiceImpl implements FridgeItemService {
     @Override
     @Transactional
     public FridgeItemDTO createFridgeItem(FridgeItemDTO fridgeItemDTO) {
+        if(fridgeItemDTO.getTimeStored()==null){
+            fridgeItemDTO.setTimeStored(LocalDateTime.now());
+        }
+
         FridgeItem fridgeItem = mapper.map(fridgeItemDTO, FridgeItem.class);
+
         FridgeItem createdFridgeItem = repository.save(fridgeItem);
         logger.debug("FridgeItemService.createFridgeItem successfully created FridgeItem: {}", createdFridgeItem.getName());
         return mapper.map(createdFridgeItem, FridgeItemDTO.class);

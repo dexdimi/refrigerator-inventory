@@ -1,5 +1,8 @@
 package com.hylastix.fridgeservice.model;
 
+import lombok.Getter;
+
+@Getter
 public enum Unit {
 
     GRAMS("Grams (g)"),
@@ -8,13 +11,9 @@ public enum Unit {
     MILLILITRES("Millilitres (mL)"),
     PIECES("Pieces (pcs)");
 
-    private String message;
+    private String label;
 
-    public String getMessage(){
-        return message;
-    }
-
-    private Unit(final String message){
-        this.message = message;
+    private Unit(final String label){
+        this.label = label;
     }
 }

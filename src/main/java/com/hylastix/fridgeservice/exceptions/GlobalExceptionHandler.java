@@ -38,7 +38,6 @@ public class GlobalExceptionHandler {
 
     }
 
-
     @ExceptionHandler(Exception.class)
     public ResponseEntity<RestApiErrorResponse> handleGeneralException(Exception exception) {
         logger.error("Uncaught Exception: ", exception);

@@ -1,5 +1,9 @@
 package com.hylastix.fridgeservice.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
 public enum Category {
 
     FRUITS_AND_VEGETABLES("Fruits & Vegetables"),
@@ -9,13 +13,9 @@ public enum Category {
     FATS_AND_OILS("Fats & Oils"),
     SWEETS_AND_TREATS("Sweets/Treats");
 
-    private String message;
-
-    public String getMessage(){
-        return message;
-    }
+    private String label;
 
     private Category(final String message){
-        this.message = message;
+        this.label = message;
     }
 }
