@@ -39,7 +39,7 @@ public class FridgeItemServiceImpl implements FridgeItemService {
         FridgeItem fridgeItem = mapper.map(fridgeItemDTO, FridgeItem.class);
 
         FridgeItem createdFridgeItem = repository.save(fridgeItem);
-        logger.debug("FridgeItemService.createFridgeItem successfully created FridgeItem: {}", createdFridgeItem.getName());
+        logger.info("FridgeItemService.createFridgeItem successfully created FridgeItem: {}", createdFridgeItem.getName());
         return mapper.map(createdFridgeItem, FridgeItemDTO.class);
     }
 
@@ -48,7 +48,7 @@ public class FridgeItemServiceImpl implements FridgeItemService {
         FridgeItem fridgeItem = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("FridgeItem not found with ID: " + id));
 
-        logger.debug("FridgeItemService.getFridgeItemById retrieved FridgeItem: {}", fridgeItem.getName());
+        logger.info("FridgeItemService.getFridgeItemById retrieved FridgeItem: {}", fridgeItem.getName());
 
         return mapper.map(fridgeItem, FridgeItemDTO.class);
     }
@@ -59,7 +59,7 @@ public class FridgeItemServiceImpl implements FridgeItemService {
 
         return repository.findAll(specification, pageable)
                 .map(fridgeItem -> {
-                    logger.debug("FridgeItemService.getFridgeItems retrieved FridgeItem: {}", fridgeItem.getName());
+                    logger.info("FridgeItemService.getFridgeItems retrieved FridgeItem: {}", fridgeItem.getName());
                     return mapper.map(fridgeItem, FridgeItemDTO.class);
                 });
     }
@@ -73,7 +73,7 @@ public class FridgeItemServiceImpl implements FridgeItemService {
         mapper.map(fridgeItemDTO, fridgeItem);
 
         FridgeItem updatedItem = repository.save(fridgeItem);
-        logger.debug("Updated FridgeItem with ID: {}, Name: {}, Best Before: {}",
+        logger.info("Updated FridgeItem with ID: {}, Name: {}, Best Before: {}",
                 updatedItem.getId(), updatedItem.getName(), updatedItem.getBestBeforeDate());
 
 
@@ -88,6 +88,6 @@ public class FridgeItemServiceImpl implements FridgeItemService {
        }
 
        repository.deleteById(id);
-       logger.debug("FridgeItemService.getFridgeItems successful deletion of FridgeItem with id: {}", id);
+       logger.info("FridgeItemService.getFridgeItems successful deletion of FridgeItem with id: {}", id);
     }
 }
